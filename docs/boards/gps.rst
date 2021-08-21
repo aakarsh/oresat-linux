@@ -1,10 +1,12 @@
 GPS
 ===
 
+.. image:: ../diagrams/OreSat0_gps.jpg
+
 SDR/Hardware GPS receiver to calculate the location of satellite. Also will
 include software for off loading the controls for ACS subsystem.
 
-.. image:: ../../docs/diagrams/gps_architecture.jpg
+.. image:: ../diagrams/gps_architecture.jpg
 
 OLM-GPS
 -------

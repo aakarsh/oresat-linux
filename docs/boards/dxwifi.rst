@@ -4,7 +4,7 @@ DxWiFi
 A board with a camera and intenna for sending live video of Earth over long 
 distance WiFi. This is apart of the OreSat Live payload mission.
 
-.. image:: ../../docs/diagrams/dxwifi_architecture.jpg
+.. image:: ../diagrams/dxwifi_architecture.jpg
 
 OLM-DxWiFi
 ----------

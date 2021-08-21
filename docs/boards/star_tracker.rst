@@ -1,10 +1,12 @@
 Star Tracker
 ============
 
+.. image:: ../diagrams/OreSat0_star_tracker.jpg
+
 Camera system that takes images of stars and uses the pattern of the stars let
 to figure out which way the satellite is pointing.
 
-.. image:: ../../docs/diagrams/star_tracker_architecture.jpg
+.. image:: ../diagrams/star_tracker_architecture.jpg
 
 OLM-StarTracker
 ---------------
