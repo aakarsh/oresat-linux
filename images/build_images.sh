@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 if [ $# -ne 1 ]; then
     echo "Invalid arguments"
     echo ""
@@ -25,7 +27,7 @@ DATE=`date "+%F"`
 NAME="$BOARD-$DATE"
 
 if [ ! -d image-builder ]; then
-    git clone https://github.com/beagleboard/image-builder
+    git clone --depth 1 --branch v2020.03 https://github.com/beagleboard/image-builder 
 fi
 
 if [ ! -d bb.org-overlays ]; then
@@ -63,7 +65,8 @@ Name=can1
 ID=$NODE_ID
 __EOF__" >> image-builder/target/chroot/oresat-chroot.sh
 
-# override setup_sdcard script
+## override setup_sdcard script
+cp ./image-builder/tools/setup_sdcard.sh ./setup_sdcard.sh
 cp ./setup_sdcard.sh ./image-builder/tools/
 
 cd image-builder
@@ -77,7 +80,7 @@ rm -rf deploy
 cd deploy/debian-*/
 
 # make .img file
-sudo ./setup_sdcard.sh $NAME.img --dtb beaglebone --enable-mainline-pru-rproc
+sudo ./setup_sdcard.sh $NAME.img --dtb beaglebone --enable-mainline-pru-rproc --spl /home/pi/u-boot/MLO --bootloader /home/pi/u-boot/u-boot.img --ro
 
 # compress
 zstd $NAME.img
